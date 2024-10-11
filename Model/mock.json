@@ -1,0 +1,37 @@
+[
+    {
+        "idPosition": 0,
+        "section": "Sector 1",
+        "row": "1",
+        "ticketCount": 5,
+        "cost": 29.95
+    },
+    {
+        "idPosition": 1,
+        "section": "Sector 1",
+        "row": "2",
+        "ticketCount": 1,
+        "cost": 50
+    },
+    {
+        "idPosition": 2,
+        "section": "Sector 2",
+        "row": "1",
+        "ticketCount": 3,
+        "cost": 10.5
+    },
+    {
+        "idPosition": 3,
+        "section": "Sector 1",
+        "row": "4",
+        "ticketCount": 6,
+        "cost": 53
+    },
+    {
+        "idPosition": 4,
+        "section": "Sector 3",
+        "row": "14",
+        "ticketCount": 8,
+        "cost": 11.5
+    }
+]
