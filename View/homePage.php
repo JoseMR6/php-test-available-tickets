@@ -1,21 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php require("header.php"); ?>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Check Tickets</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
-    <link rel="stylesheet" href="View/homePage.css">
-</head>
+<main>
+    <?php $eventData = $evento->getEventData(); ?>
+    <a href="/"><button>Buscar otro Evento</button></a>
+    <h1><?= $eventData["title"] ?></h1>
+    <div class="eventData">
+        <h6>Url: <?= $eventData["url"] ?></h6>
+        <h6>Id: <?= $eventData["idEvento"] ?></h6>
+        <h6>Tipo: <?= $eventData["type"] ?></h6>
+    </div>
 
-<body>
-    <main>
-        <h1>Check Tickets of Event</h1>
-        <div class="filters">
-            <a href="?sort=SectorRow"><button>Sort by Sector and Row</button></a>
-            <a href="?sort=Price"><button>Sort by Price</button></a>
-        </div>
+    <img src="<?= $eventData['firstPerformerImage']; ?>"
+        alt="Imagen de <?= $eventData["title"]; ?>" />
+
+    <h2>Check Tickets of Event</h2>
+    <div class="filters">
+        <a href="?sort=SectorRow&url=<?= $eventData["url"] ?>">
+            <button>Sort by Sector and Row</button>
+        </a>
+        <a href="?sort=Price&url=<?= $eventData["url"] ?>">
+            <button>Sort by Price</button>
+        </a>
+    </div>
+    <?php if ($evento->lengthPositions() > 0) : ?>
         <ul>
             <?php for ($i = 0; $i < $evento->lengthPositions(); $i++) : ?>
                 <?php $position = $evento->getPosition($i)->getData(); ?>
@@ -34,7 +41,9 @@
                 </li>
             <?php endfor; ?>
         </ul>
-    </main>
-</body>
+    <?php else : ?>
+        <div>No hay tickets disponibles o no son accesibles</div>
+    <?php endif; ?>
+</main>
 
-</html>
+<?php require("footer.php"); ?>

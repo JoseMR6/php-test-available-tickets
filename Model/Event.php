@@ -6,12 +6,34 @@ require_once("errors.php");
 
 class Event{
     //propiedades
-    private $positions;
+    private int $idEvento;
+    private string $title;
+    private string $url;
+    private string $type;
+    private string $firstPerformerImage;
+    private array $positions;
 
     //metodos
-    public function __construct(array $array){
-        //inicializar positions
+    public function __construct(int $id,string $title,string $url,
+        string $type,string $firstPerformerImage,array $array
+    ){
+        //datos del evento
+        $this->idEvento = $id;
+        $this->title = $title;
+        $this->url = $url;
+        $this->type = $type;
+        $this->firstPerformerImage = $firstPerformerImage;
+        
+        //inicializar positions (datos de tickets)
         $this->initPositionsSorted($array);
+    }
+
+    public function getEventData(): array
+    {
+        $eventData = get_object_vars($this);
+        //array position tiene sus propios metodos de acceso
+        array_pop($eventData);
+        return $eventData;
     }
 
     public function addPosition(Position $position){
