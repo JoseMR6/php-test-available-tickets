@@ -1,8 +1,8 @@
 # Análisis de entradas disponibles
 
-Prueba practica para empresa (posible estafa).
+Prueba práctica para empresa (posible estafa).
 
-## Peticion
+## Petición
 
 Desarrolla una aplicación en PHP que reciba como parámetro una URL de un evento, y muestre las entradas disponibles por sector, fila y precio. El script deberá funcionar con eventos de dos plataformas diferentes: VividSeats y SeatGeek.
 
